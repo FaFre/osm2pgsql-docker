@@ -4,8 +4,9 @@ FROM debian:stable-slim as o2p_builder
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     git ca-certificates make cmake g++ libboost-dev libboost-system-dev \
-    libboost-filesystem-dev libexpat1-dev zlib1g-dev \
-    libbz2-dev libpq-dev libproj-dev pandoc\
+    libboost-filesystem-dev libexpat1-dev zlib1g-dev libpotrace-dev \
+    libopencv-dev libbz2-dev libpq-dev libproj-dev \
+    pandoc nlohmann-json3-dev pyosmium \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone --depth 1 --branch 1.10.0 https://github.com/openstreetmap/osm2pgsql.git
